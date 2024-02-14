@@ -1,6 +1,5 @@
-
-
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { imageDb, auth } from '../../firebase'; // Assuming 'auth' is the Firebase authentication module
 import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
@@ -50,7 +49,7 @@ function Home(props) {
     return (
         <div className="App">
             <div>
-                <h2>{user ? `Welcome - ${user.displayName}` : "Login please"}</h2>
+                <h2>{user ? `Welcome - ${user.displayName}` : <Link to="/login">Login please</Link>}</h2>
             </div>
 
             {user &&
